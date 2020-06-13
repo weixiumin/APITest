@@ -1,0 +1,17 @@
+node {
+   
+   stage('Build') {
+      // 
+      echo 'build'
+   }
+   stage('test') {
+      sh label: '', 
+      script: '''#!/bin/bash -ilex
+                robot -P . tc'''
+   }
+   stage('mail') {
+      // 
+      echo 'mail'
+      mail bcc: '', body: 'pipelineTest', cc: '', from: '513114971@qq.com', replyTo: '', subject: 'pipelineTest', to: 'wxm8668@163.com'
+   }
+}
